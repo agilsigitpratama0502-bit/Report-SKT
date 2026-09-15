@@ -1,314 +1,310 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mella Home care</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Report SKT</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <div class="dashboard">
 
-<nav>
+        <!-- =========================
+             HEADER
+        ========================== -->
+        <div class="header">
+            PT. SINAR EMAS KAHURIPAN
+        </div>
 
-    <div class="logo">
-        <h2>Mella Home Care</h2>
+
+        <!-- =========================
+             INFORMASI UTAMA
+        ========================== -->
+        <div class="top-section">
+
+            <!-- KIRI -->
+            <div class="left-info">
+
+                <div class="row">
+                    <div class="label">Gross All</div>
+                    <div class="value" id="grossAll">0</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Nett All</div>
+                    <div class="value" id="nettAll">0</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Target All</div>
+                    <div class="value" id="targetAll">0</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Reject (SC) All</div>
+                    <div class="value" id="rejectSc">0</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Reject (Presentase)</div>
+                    <div class="value" id="rejectPercentage">0%</div>
+                </div>
+
+            </div>
+
+
+            <!-- TENGAH -->
+            <div class="middle-info">
+
+    <div class="date" id="tanggal">
+        0
     </div>
 
-    <ul>
-        <li><a href="#beranda">Beranda</a></li>
-        <li><a href="#layanan">Layanan</a></li>
-        <li><a href="#alasan">Keunggulan</a></li>
-        <li><a href="#cara">Pemesanan</a></li>
-        <li><a href="#rekrutmen">Rekrutmen</a></li>
-        <li><a href="#visi">Visi & Misi</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#kontak">Kontak</a></li>
-    </ul>
+    <div class="digital-clock" id="digitalClock">
+        00:00:00
+    </div>
 
-</nav>
+    <div class="target-box">
+        Target Box
+    </div>
 
-<!-- ================= HERO ================= -->
+                <div class="target-number" id="targetBox">
+                    0
+                </div>
 
-<section class="hero" id="beranda">
+            </div>
 
-    <div class="hero-text">
 
-        <h1>Mella Home Care</h1>
+            <!-- KANAN -->
+            <div class="right-info">
 
-        <h2>
-            Pendamping Terpercaya
-            untuk Keluarag Anda
-        </h2>
+                <div class="module-row">
 
-        <p>
-            Kami membantu keluarga mendapatkan Caregiver Lansia,
-            Baby Sitter, dan Asisten Rumah Tangga yang telah melalui
-            proses seleksi sehingga memberikan pelayanan yang amanah,
-            profesional, dan penuh perhatian.
-        </p>
+                    <div class="label">
+                        Nama Modul
+                    </div>
 
-        <div class="hero-button">
+                    <div class="module-value">
+                        Modul 1
+                    </div>
 
-            <a href="https://wa.me/6285119838385" class="btn-wa">
-                Hubungi via WhatsApp
-            </a>
+                    <div class="module-value">
+                        Training
+                    </div>
 
-            <a href="#layanan" class="btn-outline">
-                Lihat Layanan
-            </a>
+                </div>
+
+
+                <div class="module-row">
+
+                    <div class="label">
+                        Gross
+                    </div>
+
+                    <div class="value" id="moduleGross">
+                        0
+                    </div>
+
+                    <div class="value" id="trainingGross">
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="module-row">
+
+                    <div class="label">
+                        Nett
+                    </div>
+
+                    <div class="value" id="moduleNett">
+                        0
+                    </div>
+
+                    <div class="value" id="trainingNett">
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="module-row">
+
+                    <div class="label">
+                        Presentase
+                    </div>
+
+                    <div class="value" id="modulePercentage">
+                        0%
+                    </div>
+
+                    <div class="value" id="trainingPercentage">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <div class="module-row">
+
+                    <div class="label">
+                        Berat
+                    </div>
+
+                    <div class="empty"></div>
+
+                    <div class="weight" id="weight">
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             TERAKHIR DI INPUT
+        ========================== -->
+        <div class="section-title">
+            TERAKHIR DI INPUT
+        </div>
+
+
+        <div class="last-input">
+
+            <!-- HEADER -->
+            <div class="last-row header-row">
+
+                <div>
+                    NAMA
+                </div>
+
+                <div id="lastName">
+                    0
+                </div>
+
+                <div>
+                    Nett
+                </div>
+
+                <div>
+                    Gross
+                </div>
+
+                <div>
+                    R (%)
+                </div>
+
+            </div>
+
+
+            <!-- DATA -->
+            <div class="last-row">
+
+                <div class="label">
+                    ID
+                </div>
+
+                <div id="lastId">
+                    0
+                </div>
+
+                <div id="lastNett">
+                    0
+                </div>
+
+                <div id="lastGross">
+                    0
+                </div>
+
+                <div id="lastPercentage">
+                    0%
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             GRAFIK
+        ========================== -->
+        <div class="chart-section">
+
+            <div class="chart-title">
+                RIJECT
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas id="rejectChart"></canvas>
+
+            </div>
+
+
+            <!-- REJECT -->
+            <div class="chart-label reject-label">
+
+                <div class="leader-line"></div>
+
+                <div class="label-text">
+
+                    <strong>
+                        RIJECT
+                    </strong>
+
+                    <span id="chartReject">
+                        0%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- NETT -->
+            <div class="chart-label nett-label">
+
+                <div class="leader-line"></div>
+
+                <div class="label-text">
+
+                    <strong>
+                        NETT
+                    </strong>
+
+                    <span id="chartNett">
+                        0%
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-    <div class="hero-image">
-        <img src="images/caregiver.png" alt="Caregiver">
-    </div>
 
-</section>
-
-<!-- ================= LAYANAN ================= -->
-
-<section class="layanan" id="layanan">
-
-    <h2>Layanan Kami</h2>
-
-    <p class="section-subtitle">
-        Kami menyediakan tenaga profesional sesuai kebutuhan keluarga Anda.
-    </p>
-
-    <div class="card-container">
-
-        <div class="card">
-            <h3>👵 Caregiver Lansia</h3>
-            <p>
-                Pendampingan lansia untuk aktivitas sehari-hari,
-                menjaga kebersihan, dan memberikan perhatian penuh.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>👶 Baby Sitter</h3>
-            <p>
-                Perawatan bayi dan anak dengan penuh kasih sayang,
-                sabar, dan bertanggung jawab.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🏠 Asisten Rumah Tangga</h3>
-            <p>
-                Membantu pekerjaan rumah agar aktivitas keluarga
-                menjadi lebih nyaman.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= MENGAPA MEMILIH ================= -->
-
-<section class="alasan" id="alasan">
-
-    <h2>Mella Home Care?</h2>
-
-    <p class="section-subtitle">
-        Kami berkomitmen memberikan pelayanan terbaik bagi setiap keluarga.
-    </p>
-
-    <div class="alasan-container">
-
-        <div class="alasan-card">
-            <h3>✅ Seleksi Tenaga</h3>
-            <p>Setiap tenaga melalui proses seleksi administrasi, wawancara, dan verifikasi.</p>
-        </div>
-
-        <div class="alasan-card">
-            <h3>🤝 Pendampingan</h3>
-            <p>Kami membantu memilih tenaga yang sesuai dengan kebutuhan keluarga.</p>
-        </div>
-
-        <div class="alasan-card">
-            <h3>💙 Pelayanan Ramah</h3>
-            <p>Komunikasi cepat, ramah, dan mengutamakan kepuasan pelanggan.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= CARA PEMESANAN ================= -->
-
-<section class="cara" id="cara">
-
-    <h2>Cara Pemesanan</h2>
-
-    <div class="cara-container">
-
-        <div class="cara-card">
-            <h3>1️⃣ Konsultasi</h3>
-            <p>Hubungi kami melalui WhatsApp dan sampaikan kebutuhan Anda.</p>
-        </div>
-
-        <div class="cara-card">
-            <h3>2️⃣ Pilih Layanan</h3>
-            <p>Kami membantu memilih tenaga yang paling sesuai.</p>
-        </div>
-
-        <div class="cara-card">
-            <h3>3️⃣ Penempatan</h3>
-            <p>Setelah proses selesai, tenaga siap ditempatkan.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= REKRUTMEN ================= -->
-
-<section class="rekrutmen" id="rekrutmen">
-
-    <h2>Proses Rekrutmen Tenaga Kami</h2>
-
-    <div class="rekrut-container">
-
-        <div class="rekrut-card">
-            <h3>1️⃣ Seleksi Administrasi</h3>
-            <p>Pemeriksaan identitas, dokumen, dan pengalaman kerja.</p>
-        </div>
-
-        <div class="rekrut-card">
-            <h3>2️⃣ Wawancara</h3>
-            <p>Menilai sikap, komunikasi, dan tanggung jawab.</p>
-        </div>
-
-        <div class="rekrut-card">
-            <h3>3️⃣ Verifikasi Data</h3>
-            <p>Pengecekan data dan referensi calon tenaga.</p>
-        </div>
-
-        <div class="rekrut-card">
-            <h3>4️⃣ Siap Ditempatkan</h3>
-            <p>Tenaga siap direkomendasikan sesuai kebutuhan keluarga.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= VISI ================= -->
-
-<section class="visi" id="visi">
-
-    <h2>Visi & Misi</h2>
-
-    <div class="visi-container">
-
-        <div class="visi-box">
-            <h3>🌟 Visi</h3>
-            <p>
-                Menjadi penyedia layanan Caregiver, Baby Sitter, dan Asisten Rumah Tangga
-                yang profesional, terpercaya, dan mengutamakan pelayanan dengan hati.
-            </p>
-        </div>
-
-        <div class="visi-box">
-            <h3>🎯 Misi</h3>
-
-            <ul>
-                <li>Memberikan pelayanan yang ramah.</li>
-                <li>Menyediakan tenaga profesional.</li>
-                <li>Mengutamakan kejujuran dan tanggung jawab.</li>
-                <li>Meningkatkan kualitas pelayanan.</li>
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= FAQ ================= -->
-
-<section class="faq" id="faq">
-
-    <h2>Pertanyaan yang Sering Diajukan</h2>
-
-    <div class="faq-item">
-        <h3>Apakah tenaga sudah melalui seleksi?</h3>
-        <p>Ya, seluruh tenaga telah melalui proses seleksi sesuai prosedur.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Apakah bisa memilih tenaga?</h3>
-        <p>Tentu, kami membantu mencarikan tenaga sesuai kebutuhan keluarga.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Bagaimana cara pemesanan?</h3>
-        <p>Silakan hubungi kami melalui WhatsApp untuk konsultasi.</p>
-    </div>
-
-</section>
-
-<!-- ================= KONTAK ================= -->
-
-<section class="kontak" id="kontak">
-
-    <h2>Hubungi Kami</h2>
-
-    <p>
-        Konsultasikan kebutuhan Anda kepada kami.
-        Tim Mella Home Care siap membantu Anda.
-    </p>
-
-    <div class="kontak-container">
-
-        <div class="kontak-card">
-            <h3>📱 WhatsApp</h3>
-            <p>0851-1983-8385</p>
-        </div>
-
-        <div class="kontak-card">
-            <h3>📧 Email</h3>
-            <p>mellahomecare@email.com</p>
-        </div>
-
-        <div class="kontak-card">
-            <h3>📍 Wilayah Layanan</h3>
-            <p>Sesuaikan dengan wilayah operasional Anda.</p>
-        </div>
-
-    </div>
-
-    <a href="https://wa.me/6285119838385" class="btn-wa">
-        Hubungi via WhatsApp
-    </a>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <h3>Mella Home Care</h3>
-
-    <p>Melayani dengan Hati, Merawat dengan Kasih.</p>
-
-    <p>&copy; 2026 Mella Home Care. All Rights Reserved.</p>
-
-</footer>
+    <!-- =========================
+         CHART.JS
+    ========================== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- =========================
+         JAVASCRIPT DASHBOARD
+    ========================== -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
