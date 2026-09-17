@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>List Reject SKT</title>
+
+    <link rel="stylesheet" href="list.css">
+
+</head>
+
+
+<body>
+
+    <div class="list-page">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="list-header">
+
+            <div>
+
+                <h1>
+                    LIST REJECT SKT
+                </h1>
+
+                <p>
+                    Data Trial Produksi
+                </p>
+
+            </div>
+
+
+            <div class="clock-box">
+
+                <div id="tanggal">
+                    -
+                </div>
+
+                <div id="jam">
+                    00:00:00
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= TABLE ================= -->
+
+        <section class="table-card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        List Reject SKT
+                    </h2>
+
+                    <span id="status">
+                        Mengambil data...
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="loadData()">
+
+                    ↻ Refresh
+
+                </button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table id="dataTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>NAMA</th>
+
+                            <th>ID</th>
+
+                            <th>GROSS</th>
+
+                            <th>NETT</th>
+
+                            <th>RIJECT</th>
+
+                            <th>R(%)</th>
+
+                            <th>BERAT</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="7"
+                                class="loading">
+
+                                Memuat data...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="list.js"></script>
+
+</body>
+
+</html>

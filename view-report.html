@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>View Report</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000000;
+        }
+
+        .dashboard-tv {
+            width: 100%;
+            height: 100vh;
+            padding: 8px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 5px;
+
+            background: #333333;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            height: 58px;
+            flex-shrink: 0;
+
+            background: #0d416b;
+            color: #e6c02f;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #ffffff;
+
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           INFORMASI ATAS
+        ========================= */
+
+        .top-section {
+
+            flex: 0 0 235px;
+
+            display: grid;
+
+            grid-template-columns:
+                34%
+                24%
+                42%;
+
+            background: #ffffff;
+
+            border: 1px solid #ffffff;
+        }
+
+
+        /* =========================
+           KOLOM KIRI
+        ========================= */
+
+        .left-info {
+            background: #ffffff;
+        }
+
+        .row {
+            display: grid;
+
+            grid-template-columns:
+                58%
+                42%;
+
+            min-height: 35px;
+        }
+
+
+        .label {
+            background: #d5b233;
+
+            padding: 7px 8px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+
+
+        .value {
+            background: #ffffff;
+
+            padding: 7px 5px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            text-align: center;
+
+            border-bottom: 1px solid #000000;
+        }
+
+
+        /* =========================
+           KOLOM TENGAH
+        ========================= */
+
+        .middle-info {
+
+            background: #ffffff;
+
+            border-left: 1px solid #000000;
+            border-right: 1px solid #000000;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .date {
+
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+
+            font-size: 17px;
+            font-weight: bold;
+            font-style: italic;
+
+            border-bottom: 1px solid #000000;
+        }
+
+
+        .digital-clock {
+
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+
+            font-family: "Courier New", monospace;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            border-bottom: 1px solid #000000;
+        }
+
+
+        .target-box {
+
+            background: #d5b233;
+
+            padding: 7px;
+
+            text-align: center;
+
+            font-size: 15px;
+            font-weight: bold;
+            font-style: italic;
+
+            border-bottom: 1px solid #000000;
+        }
+
+
+        .target-number {
+
+            flex: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           KOLOM KANAN
+        ========================= */
+
+        .right-info {
+            background: #ffffff;
+        }
+
+
+        .module-row {
+
+            display: grid;
+
+            grid-template-columns:
+                40%
+                30%
+                30%;
+
+            min-height: 35px;
+        }
+
+
+        .module-row > div {
+
+            padding: 7px 5px;
+
+            border-bottom: 1px solid #000000;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            text-align: center;
+        }
+
+
+        .module-row .label {
+
+            text-align: left;
+
+            background: #d5b233;
+        }
+
+
+        .module-value {
+
+            background: #d5b233;
+
+            border-left: 1px solid #000000;
+        }
+
+
+        .module-row .value {
+
+            border-left: 1px solid #000000;
+        }
+
+
+        .weight {
+
+            background: #ffffff;
+
+            color: red;
+
+            font-style: italic;
+        }
+
+
+        /* =========================
+           WARNA
+        ========================= */
+
+        .green {
+
+            background: #00ff00 !important;
+
+        }
+
+
+        .red {
+
+            background: #ff0000 !important;
+
+            color: #ffffff !important;
+
+        }
+
+
+        /* =========================
+           TERAKHIR DI INPUT
+        ========================= */
+
+        .section-title {
+
+            height: 32px;
+
+            flex-shrink: 0;
+
+            background: #0d416b;
+
+            color: #e6c02f;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            font-style: italic;
+
+            border: 1px solid #ffffff;
+        }
+
+
+        .last-input {
+
+            flex-shrink: 0;
+
+            background: #ffffff;
+
+            border-left: 1px solid #ffffff;
+            border-right: 1px solid #ffffff;
+        }
+
+
+        .last-row {
+
+            display: grid;
+
+            grid-template-columns:
+                16%
+                40%
+                14%
+                14%
+                16%;
+        }
+
+
+        .last-row > div {
+
+            min-height: 32px;
+
+            padding: 7px 4px;
+
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+        }
+
+
+        .last-row .label,
+        .last-row.header-row > div {
+
+            background: #d5b233;
+        }
+
+
+        /* =========================
+           CHART
+        ========================= */
+
+        .chart-section {
+
+            position: relative;
+
+            flex: 1;
+
+            min-height: 0;
+
+            background: #3d3d3d;
+
+            border: 1px solid #ffffff;
+
+            overflow: hidden;
+        }
+
+
+        .chart-title {
+
+            text-align: center;
+
+            color: #e6c02f;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            padding-top: 7px;
+        }
+
+
+        .chart-container {
+
+            position: absolute;
+
+            width: min(55%, 230px);
+
+            height: calc(100% - 45px);
+
+            left: 50%;
+
+            top: 40px;
+
+            transform: translateX(-50%);
+        }
+
+
+        .chart-label {
+
+            position: absolute;
+
+            color: #e6c02f;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        .label-text {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .chart-label span {
+
+            color: #bdbdbd;
+
+            font-size: 13px;
+        }
+
+
+        .reject-label {
+
+            right: 5px;
+
+            top: 55px;
+        }
+
+
+        .reject-label .leader-line {
+
+            width: 45px;
+
+            height: 1px;
+
+            background: #e6c02f;
+
+            margin-right: 5px;
+
+            transform: rotate(-25deg);
+        }
+
+
+        .nett-label {
+
+            left: 5px;
+
+            bottom: 30px;
+
+            flex-direction: row-reverse;
+        }
+
+
+        .nett-label .leader-line {
+
+            width: 45px;
+
+            height: 1px;
+
+            background: #e6c02f;
+
+            margin-left: 5px;
+
+            transform: rotate(-25deg);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .header {
+                font-size: 18px;
+            }
+
+            .top-section {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .chart-label {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-tv">
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div class="header">
+
+        PT. SINAR EMAS KAHURIPAN
+
+    </div>
+
+
+    <!-- =========================
+         DATA ATAS
+    ========================= -->
+
+    <div class="top-section">
+
+
+        <!-- KIRI -->
+
+        <div class="left-info">
+
+
+            <div class="row">
+
+                <div class="label">
+                    Gross All
+                </div>
+
+                <div class="value"
+                     id="grossAll">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="label">
+                    Nett All
+                </div>
+
+                <div class="value"
+                     id="nettAll">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="label">
+                    Target All
+                </div>
+
+                <div class="value"
+                     id="targetAll">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="label">
+                    Reject (SC) All
+                </div>
+
+                <div class="value"
+                     id="rejectSc">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="label">
+                    Reject (Presentase)
+                </div>
+
+                <div class="value"
+                     id="rejectPercentage">
+                    0%
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- TENGAH -->
+
+        <div class="middle-info">
+
+
+            <div class="date"
+                 id="tanggal">
+                0
+            </div>
+
+
+            <div class="digital-clock"
+                 id="digitalClock">
+                00:00:00
+            </div>
+
+
+            <div class="target-box">
+                Target Box
+            </div>
+
+
+            <div class="target-number"
+                 id="targetBox">
+                0
+            </div>
+
+
+        </div>
+
+
+        <!-- KANAN -->
+
+        <div class="right-info">
+
+
+            <div class="module-row">
+
+                <div class="label">
+                    Nama Modul
+                </div>
+
+                <div class="module-value">
+                    Modul 1
+                </div>
+
+                <div class="module-value">
+                    Training
+                </div>
+
+            </div>
+
+
+            <div class="module-row">
+
+                <div class="label">
+                    Gross
+                </div>
+
+                <div class="value"
+                     id="moduleGross">
+                    0
+                </div>
+
+                <div class="value"
+                     id="trainingGross">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="module-row">
+
+                <div class="label">
+                    Nett
+                </div>
+
+                <div class="value"
+                     id="moduleNett">
+                    0
+                </div>
+
+                <div class="value"
+                     id="trainingNett">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="module-row">
+
+                <div class="label">
+                    Presentase
+                </div>
+
+                <div class="value"
+                     id="modulePercentage">
+                    0%
+                </div>
+
+                <div class="value"
+                     id="trainingPercentage">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="module-row">
+
+                <div class="label">
+                    Berat
+                </div>
+
+                <div></div>
+
+                <div class="weight"
+                     id="weight">
+                    0
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         TERAKHIR DI INPUT
+    ========================= -->
+
+    <div class="section-title">
+
+        TERAKHIR DI INPUT
+
+    </div>
+
+
+    <div class="last-input">
+
+
+        <div class="last-row header-row">
+
+            <div>
+                NAMA
+            </div>
+
+            <div id="lastName">
+                0
+            </div>
+
+            <div>
+                Nett
+            </div>
+
+            <div>
+                Gross
+            </div>
+
+            <div>
+                R (%)
+            </div>
+
+        </div>
+
+
+        <div class="last-row">
+
+            <div class="label">
+                ID
+            </div>
+
+            <div id="lastId">
+                0
+            </div>
+
+            <div id="lastNett">
+                0
+            </div>
+
+            <div id="lastGross">
+                0
+            </div>
+
+            <div id="lastPercentage">
+                0%
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         CHART
+    ========================= -->
+
+    <div class="chart-section">
+
+
+        <div class="chart-title">
+            RIJECT
+        </div>
+
+
+        <div class="chart-container">
+
+            <canvas id="rejectChart"></canvas>
+
+        </div>
+
+
+        <div class="chart-label reject-label">
+
+            <div class="leader-line"></div>
+
+            <div class="label-text">
+
+                <strong>
+                    RIJECT
+                </strong>
+
+                <span id="chartReject">
+                    0%
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-label nett-label">
+
+            <div class="leader-line"></div>
+
+            <div class="label-text">
+
+                <strong>
+                    NETT
+                </strong>
+
+                <span id="chartNett">
+                    0%
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333333;
+    color: #000000;
+    padding: 12px;
+}
+
+.list-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================= HEADER ================= */
+
+.list-header {
+    background: #0d416b;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 18px 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 65px;
+}
+
+.list-header h1 {
+    color: #e6c02f;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.list-header p {
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* ================= CLOCK ================= */
+
+.clock-box {
+    text-align: right;
+}
+
+#tanggal {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#jam {
+    color: #e6c02f;
+    font-family: "Courier New", monospace;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ================= TABLE CARD ================= */
+
+.table-card {
+    margin-top: 15px;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+/* ================= TABLE HEADER ================= */
+
+.table-header {
+    background: #3d3d3d;
+
+    padding: 10px 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #ffffff;
+}
+
+.table-header h2 {
+    color: #e6c02f;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+#status {
+    color: #cccccc;
+    font-size: 12px;
+}
+
+/* ================= BUTTON ================= */
+
+button {
+    border: 1px solid #e6c02f;
+    background: #0d416b;
+    color: #e6c02f;
+
+    padding: 8px 15px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #e6c02f;
+    color: #0d416b;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+/* HEADER TABLE */
+
+thead th {
+    background: #d5b233;
+    color: #000000;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    padding: 8px 8px;
+
+    border: 1px solid #000000;
+
+    white-space: nowrap;
+}
+
+/* DATA */
+
+tbody td {
+    background: #ffffff;
+    color: #000000;
+
+    padding: 8px 8px;
+
+    border: 1px solid #000000;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+/* NAMA */
+
+tbody td:nth-child(1) {
+    text-align: left;
+    min-width: 240px;
+}
+
+/* ID */
+
+tbody td:nth-child(2) {
+    text-align: left;
+    min-width: 190px;
+}
+
+/* ANGKA */
+
+tbody td:nth-child(3),
+tbody td:nth-child(4),
+tbody td:nth-child(5),
+tbody td:nth-child(6),
+tbody td:nth-child(7) {
+
+    text-align: center;
+
+}
+
+/* WIDTH */
+
+tbody td:nth-child(3) {
+    min-width: 80px;
+}
+
+tbody td:nth-child(4) {
+    min-width: 80px;
+}
+
+tbody td:nth-child(5) {
+    min-width: 80px;
+}
+
+tbody td:nth-child(6) {
+    min-width: 80px;
+    font-weight: bold;
+}
+
+tbody td:nth-child(7) {
+    min-width: 80px;
+}
+
+/* HOVER */
+
+tbody tr:hover td {
+    background-color: #eeeeee;
+}
+
+/* ================= LOADING ================= */
+
+.loading {
+    text-align: center !important;
+    padding: 30px !important;
+    color: #777777;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 5px;
+    }
+
+    .list-header {
+        padding: 15px;
+    }
+
+    .list-header h1 {
+        font-size: 18px;
+    }
+
+    .list-header p {
+        font-size: 12px;
+    }
+
+    #jam {
+        font-size: 19px;
+    }
+
+    #tanggal {
+        font-size: 10px;
+    }
+
+    .table-header {
+        padding: 12px;
+    }
+
+}
